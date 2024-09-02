@@ -1,5 +1,5 @@
-import client from '../lib/shopify'
-import ProductCard from '../components/ProductCard'
+import client from '@/lib/shopify'
+import ProductCard from '@/components/ProductCard'
 
 interface Product {
   id: string
