@@ -8,12 +8,10 @@ export async function GET() {
     const products = await fetchWordPressProducts();
     const normalizedProducts = normalizeWordPressProducts(products);
 
-    // Here, store normalized products in a constant
     const productUploadPromises = normalizedProducts.map(product => 
-      createShopifyProduct(product) // Send products one by one
+      createShopifyProduct(product) 
     );
 
-    // Wait for all products to be uploaded
     await Promise.all(productUploadPromises);
 
     return NextResponse.json({ message: 'Products uploaded successfully' });

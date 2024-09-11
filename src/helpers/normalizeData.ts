@@ -5,7 +5,7 @@ export function normalizeWordPressCategories(categories: WPCategory[]): any[] {
     name: category.name,
     slug: category.slug,
     description: category.description || '',
-    parent: category.parent || 0, // Handle top-level categories
+    parent: category.parent || 0, 
   }));
 }
 
