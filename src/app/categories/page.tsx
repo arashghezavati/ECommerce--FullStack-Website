@@ -1,7 +1,6 @@
 import { fetchCategories } from '../services/shopify/fetch-categories';
 import CategoryCard from '../components/category/CategoryCard';
 
-// Fetch collections (categories) at build time or on the server
 export default async function CategoriesPage() {
   const collections = await fetchCategories();
 

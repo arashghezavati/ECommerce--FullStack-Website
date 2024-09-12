@@ -1,7 +1,6 @@
 import { fetchProducts } from '../services/shopify/fetch-products';
 import ProductCard from '../components/product/ProductCard';
 
-// Fetch products at build time or on the server
 export default async function ProductsPage() {
   const products = await fetchProducts();
 

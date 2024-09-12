@@ -3,7 +3,6 @@ import { fetchProductByHandle } from '../../services/shopify/fetch-products';
 async function fetchProduct(handle: string) {
   const product = await fetchProductByHandle(handle);
 
-  // Convert the product to a plain object (JSON)
   return JSON.parse(JSON.stringify(product));
 }
 
