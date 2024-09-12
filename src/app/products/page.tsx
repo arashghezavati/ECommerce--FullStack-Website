@@ -1,5 +1,5 @@
-import { fetchProducts } from '../services/shopify/fetch-products'
-import ProductCard from '../components/product/ProductCard'
+import { fetchProducts } from '../../services/shopify/fetch-products'
+import ProductCard from '../../components/product/ProductCard'
 
 export default async function ProductsPage() {
   const products = await fetchProducts()

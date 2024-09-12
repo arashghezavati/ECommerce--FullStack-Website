@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
-import { fetchWordPressCategories } from '../../services/wordpress/fetch-categories'
+import { fetchWordPressCategories } from '../../../services/wordpress/fetch-categories'
 import { normalizeWordPressCategories } from '../../../helpers/normalizeData'
-import { createShopifyCategory } from '../../services/shopify/create-category'
+import { createShopifyCategory } from '../../../services/shopify/create-category'
 
 export async function GET() {
   try {

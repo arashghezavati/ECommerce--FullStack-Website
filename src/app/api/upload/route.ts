@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { uploadCategoriesToShopify, uploadProductsToShopify } from '@/app/services/syncWordPressToShopify';
+import { uploadCategoriesToShopify, uploadProductsToShopify } from '@/services/syncWordPressToShopify';
 
 export async function GET() {
   try {

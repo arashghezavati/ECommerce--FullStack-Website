@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
-import { fetchWordPressProducts } from '../../services/wordpress/fetch-products'
+import { fetchWordPressProducts } from '../../../services/wordpress/fetch-products'
 import { normalizeWordPressProducts } from '../../../helpers/normalizeData'
-import { createShopifyProduct } from '../../services/shopify/create-product'
+import { createShopifyProduct } from '../../../services/shopify/create-product'
 
 export async function GET() {
   try {

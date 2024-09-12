@@ -1,6 +1,6 @@
-import { fetchCategories } from '../services/shopify/fetch-categories'
-import CategoryCard from '../components/category/CategoryCard'
-import ProductCard from '../components/product/ProductCard'
+import { fetchCategories } from '../../services/shopify/fetch-categories'
+import CategoryCard from '../../components/category/CategoryCard'
+import ProductCard from '../../components/product/ProductCard'
 
 export default async function CategoriesPage() {
   const collections = await fetchCategories()

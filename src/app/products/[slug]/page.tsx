@@ -1,4 +1,4 @@
-import { fetchProductByHandle } from '../../services/shopify/fetch-products'
+import { fetchProductByHandle } from '../../../services/shopify/fetch-products'
 
 async function fetchProduct(handle: string) {
   const product = await fetchProductByHandle(handle)

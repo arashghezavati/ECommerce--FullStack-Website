@@ -1,8 +1,8 @@
-import { fetchWordPressCategories } from '@/app/services/wordpress/fetch-categories';
-import { fetchWordPressProducts } from '@/app/services/wordpress/fetch-products';
-import { normalizeWordPressCategories, normalizeWordPressProducts } from '../../helpers/normalizeData';
-import { createShopifyCategory } from '@/app/services/shopify/create-category';
-import { createShopifyProduct } from '@/app/services/shopify/create-product';
+import { fetchWordPressCategories } from '@/services/wordpress/fetch-categories';
+import { fetchWordPressProducts } from '@/services/wordpress/fetch-products';
+import { normalizeWordPressCategories, normalizeWordPressProducts } from '../helpers/normalizeData';
+import { createShopifyCategory } from '@/services/shopify/create-category';
+import { createShopifyProduct } from '@/services/shopify/create-product';
 
 // Function to fetch and upload WooCommerce categories to Shopify
 export async function uploadCategoriesToShopify() {

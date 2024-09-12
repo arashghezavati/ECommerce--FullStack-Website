@@ -1,9 +1,9 @@
-import { fetchProducts } from './services/shopify/fetch-products'
-import { fetchCategories } from './services/shopify/fetch-categories'
-import ProductCard from './components/product/ProductCard'
-import CategoryCard from './components/category/CategoryCard'
+import { fetchProducts } from '../services/shopify/fetch-products'
+import { fetchCategories } from '../services/shopify/fetch-categories'
+import ProductCard from '../components/product/ProductCard'
+import CategoryCard from '../components/category/CategoryCard'
 
-export const revalidate = 1;  // Use 1 second or remove it in development
+export const revalidate = 1 // Use 1 second or remove it in development
 
 export default async function HomePage() {
   const products = await fetchProducts()
@@ -23,7 +23,6 @@ export default async function HomePage() {
           {products.map((product: any) => (
             <li key={product.id}>
               <ProductCard product={product} />
-              
             </li>
           ))}
         </ul>
