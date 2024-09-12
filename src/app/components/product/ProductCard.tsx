@@ -1,8 +1,10 @@
 interface ProductCardProps {
   product: any
+
 }
 
-const ProductCard = ({ product }: ProductCardProps) => {
+
+const ProductCard = ({ product}: ProductCardProps, ) => {
   return (
     <div className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
       <img

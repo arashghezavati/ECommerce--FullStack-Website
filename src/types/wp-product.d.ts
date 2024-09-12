@@ -5,6 +5,7 @@ export interface WPProduct {
   price: string
   images: { src: string }[]
   categories: { name: string }[]
+  
 }
 
 export interface WPCategory {
