@@ -1,22 +1,13 @@
-import { NextResponse } from 'next/server'
-import { fetchWordPressProducts } from '../../../services/wordpress/fetch-products'
-import { normalizeWordPressProducts } from '../../../helpers/normalizeData'
-import { createShopifyProduct } from '../../../services/shopify/create-product'
+import { NextResponse } from 'next/server';
+import { fetchProducts } from '@/services/shopify/fetch-products';
 
+// Handle GET requests
 export async function GET() {
   try {
-    const products = await fetchWordPressProducts()
-    const normalizedProducts = normalizeWordPressProducts(products)
-
-    const productUploadPromises = normalizedProducts.map((product) =>
-      createShopifyProduct(product),
-    )
-
-    await Promise.all(productUploadPromises)
-
-    return NextResponse.json({ message: 'Products uploaded successfully' })
+    const products = await fetchProducts(); // Fetch products from Shopify
+    return NextResponse.json(products); // Return products as JSON
   } catch (error) {
-    console.error(error)
-    return NextResponse.error()
+    console.error('Failed to fetch products:', error);
+    return NextResponse.json({ error: 'Failed to fetch products' }, { status: 500 });
   }
 }

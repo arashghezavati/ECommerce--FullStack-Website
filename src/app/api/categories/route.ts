@@ -1,27 +1,13 @@
-import { NextResponse } from 'next/server'
-import { fetchWordPressCategories } from '../../../services/wordpress/fetch-categories'
-import { normalizeWordPressCategories } from '../../../helpers/normalizeData'
-import { createShopifyCategory } from '../../../services/shopify/create-category'
+import { NextResponse } from 'next/server';
+import { fetchCategories } from '@/services/shopify/fetch-categories';
 
+// Handle GET requests for categories
 export async function GET() {
   try {
-    const fetchedCategories = await fetchWordPressCategories()
-    const categories = [...fetchedCategories]
-
-    const normalizedCategories = normalizeWordPressCategories(categories)
-
-    const categoryUploadPromises = normalizedCategories.map((category) =>
-      createShopifyCategory(category),
-    )
-
-    await Promise.all(categoryUploadPromises)
-
-    return NextResponse.json({ message: 'Categories uploaded successfully' })
+    const categories = await fetchCategories(); // Fetch categories from Shopify
+    return NextResponse.json(categories); // Return categories as JSON
   } catch (error) {
-    console.error('Error uploading categories:', error)
-    return NextResponse.json(
-      { error: 'Failed to upload categories' },
-      { status: 500 },
-    )
+    console.error('Failed to fetch categories:', error);
+    return NextResponse.json({ error: 'Failed to fetch categories' }, { status: 500 });
   }
 }
