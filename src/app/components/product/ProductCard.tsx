@@ -1,5 +1,5 @@
 interface ProductCardProps {
-  product: any;
+  product: any
 }
 
 const ProductCard = ({ product }: ProductCardProps) => {
@@ -19,7 +19,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ProductCard;
+export default ProductCard

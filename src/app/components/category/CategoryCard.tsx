@@ -1,5 +1,5 @@
 interface CategoryProps {
-  category: any; 
+  category: any
 }
 
 const CategoryCard = ({ category }: CategoryProps) => {
@@ -17,7 +17,7 @@ const CategoryCard = ({ category }: CategoryProps) => {
         <p className="text-gray-600">{category.description}</p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CategoryCard;
+export default CategoryCard

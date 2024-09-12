@@ -1,4 +1,4 @@
 declare module 'shopify-buy' {
-  const Client: any;
-  export default Client;
+  const Client: any
+  export default Client
 }

@@ -1,12 +1,12 @@
-import { WPCategory, WPProduct } from '@/types/wp-product';
+import { WPCategory, WPProduct } from '@/types/wp-product'
 
 export function normalizeWordPressCategories(categories: WPCategory[]): any[] {
   return categories.map((category) => ({
     name: category.name,
     slug: category.slug,
     description: category.description || '',
-    parent: category.parent || 0, 
-  }));
+    parent: category.parent || 0,
+  }))
 }
 
 export function normalizeWordPressProducts(products: WPProduct[]): any[] {
@@ -18,5 +18,5 @@ export function normalizeWordPressProducts(products: WPProduct[]): any[] {
     price: product.price || 0,
     images: product.images.map((image) => ({ src: image.src })),
     variants: [{ price: product.price }],
-  }));
+  }))
 }

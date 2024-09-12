@@ -1,8 +1,8 @@
-import { fetchCategories } from '../services/shopify/fetch-categories';
-import CategoryCard from '../components/category/CategoryCard';
+import { fetchCategories } from '../services/shopify/fetch-categories'
+import CategoryCard from '../components/category/CategoryCard'
 
 export default async function CategoriesPage() {
-  const collections = await fetchCategories();
+  const collections = await fetchCategories()
 
   return (
     <div className="container mx-auto py-8">
@@ -15,5 +15,5 @@ export default async function CategoriesPage() {
         ))}
       </ul>
     </div>
-  );
+  )
 }
