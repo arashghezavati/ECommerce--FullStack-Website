@@ -1,13 +1,10 @@
 import CategoryCard from '../../components/category/CategoryCard'
 
-
 export default async function CategoriesPage() {
-
-
   const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/categories`, {
     cache: 'no-store', // Ensures the data is fetched fresh on each request
-  });
-  const categories = await res.json(); // Parse the response data
+  })
+  const categories = await res.json() // Parse the response data
 
   return (
     <div className="container mx-auto py-8">
@@ -20,5 +17,5 @@ export default async function CategoriesPage() {
         ))}
       </ul>
     </div>
-  );
+  )
 }

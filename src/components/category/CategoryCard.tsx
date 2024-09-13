@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 interface CategoryProps {
   category: any
 }
@@ -6,9 +8,11 @@ const CategoryCard = ({ category }: CategoryProps) => {
   return (
     <div className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
       {category.image && (
-        <img
+        <Image
           src={category.image.src}
           alt={category.title}
+          width={500}
+          height={300}
           className="w-full h-48 object-cover"
         />
       )}

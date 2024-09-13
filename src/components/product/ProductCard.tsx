@@ -1,15 +1,17 @@
+import Image from 'next/image'
+
 interface ProductCardProps {
   product: any
-
 }
 
-
-const ProductCard = ({ product}: ProductCardProps, ) => {
+const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <div className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
-      <img
+      <Image
         src={product.images[0]?.src}
         alt={product.title}
+        width={500}
+        height={500}
         className="w-full h-56 object-cover"
       />
       <div className="p-6">

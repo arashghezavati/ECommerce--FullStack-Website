@@ -1,16 +1,28 @@
-import { NextResponse } from 'next/server';
-import { uploadCategoriesToShopify, uploadProductsToShopify } from '@/services/syncWordPressToShopify';
+import { NextResponse } from 'next/server'
+import {
+  uploadCategoriesToShopify,
+  uploadProductsToShopify,
+} from '@/services/syncWordPressToShopify'
 
 export async function GET() {
   try {
     // Upload categories and products
-    await uploadCategoriesToShopify();
-    await uploadProductsToShopify();
+    await uploadCategoriesToShopify()
+    await uploadProductsToShopify()
 
     // Return a success response
-    return NextResponse.json({ message: 'Categories and Products uploaded successfully' });
+    return NextResponse.json({
+      message: 'Categories and Products uploaded successfully',
+    })
   } catch (error) {
-    console.error('Error uploading categories and products:', error);
-    return NextResponse.json({ error: 'Failed to upload categories and products' }, { status: 500 });
+    if (error instanceof Error) {
+      console.error('Error uploading categories and products:', error.message)
+    } else {
+      console.error('Error uploading categories and products:', error)
+    }
+    return NextResponse.json(
+      { error: 'Failed to upload categories and products' },
+      { status: 500 },
+    )
   }
 }

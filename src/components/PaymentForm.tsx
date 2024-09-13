@@ -1,35 +1,42 @@
-'use client';
+'use client'
 
-import React, { useState } from 'react';
-import { loadStripe } from '@stripe/stripe-js';
-import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import React, { useState } from 'react'
+import { loadStripe } from '@stripe/stripe-js'
+import {
+  Elements,
+  CardElement,
+  useStripe,
+  useElements,
+} from '@stripe/react-stripe-js'
 
 // Initialize Stripe with your public key
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string);
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string,
+)
 
 const PaymentForm = () => {
-  const stripe = useStripe();
-  const elements = useElements();
-  const [error, setError] = useState<string | null>(null);
+  const stripe = useStripe()
+  const elements = useElements()
+  const [error, setError] = useState<string | null>(null)
 
   const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
+    event.preventDefault()
 
     if (!stripe || !elements) {
-      return;
+      return
     }
 
-    const cardElement = elements.getElement(CardElement);
-    if (!cardElement) return;
+    const cardElement = elements.getElement(CardElement)
+    if (!cardElement) return
 
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: 'card',
       card: cardElement,
-    });
+    })
 
     if (error) {
-      setError(error.message || 'An unknown error occurred');
-      return;
+      setError(error.message || 'An unknown error occurred')
+      return
     }
 
     const response = await fetch('/api/orders', {
@@ -41,26 +48,31 @@ const PaymentForm = () => {
         orderData: {
           lineItems: [
             {
-              variantId: 'gid://shopify/ProductVariant/44060494594245', 
+              variantId: 'gid://shopify/ProductVariant/44060494594245',
               quantity: 1,
             },
           ],
         },
       }),
-    });
+    })
 
-    const paymentResponse = await response.json();
+    const paymentResponse = await response.json()
 
     if (paymentResponse.error) {
-      setError(paymentResponse.error);
+      setError(paymentResponse.error)
     } else {
-      console.log('Payment successful!', paymentResponse);
+      console.log('Payment successful!', paymentResponse)
     }
-  };
+  }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-md max-w-md mx-auto space-y-6">
-      <h2 className="text-2xl font-semibold text-gray-800 text-center">Payment Details</h2>
+    <form
+      onSubmit={handleSubmit}
+      className="bg-white p-8 rounded-lg shadow-md max-w-md mx-auto space-y-6"
+    >
+      <h2 className="text-2xl font-semibold text-gray-800 text-center">
+        Payment Details
+      </h2>
       <div className="bg-gray-100 p-4 rounded-lg shadow-inner">
         <CardElement className="p-4 bg-white border rounded-md shadow-sm" />
       </div>
@@ -73,13 +85,13 @@ const PaymentForm = () => {
         Pay
       </button>
     </form>
-  );
-};
+  )
+}
 
 const Payment = () => (
   <Elements stripe={stripePromise}>
     <PaymentForm />
   </Elements>
-);
+)
 
-export default Payment;
+export default Payment

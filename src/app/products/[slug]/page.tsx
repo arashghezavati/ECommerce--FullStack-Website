@@ -1,5 +1,5 @@
 import { fetchProductByHandle } from '../../../services/shopify/fetch-products'
-
+import Image from 'next/image'
 async function fetchProduct(handle: string) {
   const product = await fetchProductByHandle(handle)
 
@@ -20,7 +20,12 @@ export default async function ProductPage({
   return (
     <div>
       <h1>{product.title}</h1>
-      <img src={product.images[0]?.src} alt={product.title} width={300} />
+      <Image
+        src={product.images[0]?.src}
+        alt={product.title}
+        width={300}
+        height={300}
+      />
       <p>{product.description}</p>
       <p>
         Price: ${product.variants[0].priceV2.amount}{' '}
