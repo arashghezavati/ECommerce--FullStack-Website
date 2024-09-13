@@ -1,11 +1,7 @@
 {
+  "extends": ["next/core-web-vitals", "next", "prettier"],
+  "plugins": ["prettier"],
   "rules": {
-    "prettier/prettier": [
-      "error",
-      {
-        "semi": false, // Disabling semicolon enforcement
-        "singleQuote": true
-      }
-    ]
+    "prettier/prettier": "error"
   }
 }
