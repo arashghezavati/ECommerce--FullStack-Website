@@ -1,12 +1,11 @@
 import CategoryCard from '@/components/category/CategoryCard';
-import { fetchCategories } from '@/services/shopify/fetch-categories'
 
 
 export default async function CategoriesPage() {
-  // const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/categories`, {
-  //   cache: 'no-store',
-  // })
-  const res = await fetchCategories();
+  const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/categories`, {
+    cache: 'no-store',
+  })
+
   const categories = await res.json() 
   return (
     <div className="container mx-auto py-8">
