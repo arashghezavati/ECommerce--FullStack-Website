@@ -4,7 +4,7 @@ import ProductCard from '@/components/product/ProductCard'
 import CategoryCard from '@/components/category/CategoryCard'
 import NavBar from '@/components/NavBar'
 
-export const revalidate = 1 // Use 1 second or remove it in development
+export const revalidate = 1 
 
 export default async function HomePage() {
   const products = await fetchProducts()

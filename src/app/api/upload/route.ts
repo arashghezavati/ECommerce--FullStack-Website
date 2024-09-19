@@ -6,11 +6,9 @@ import {
 
 export async function GET() {
   try {
-    // Upload categories and products
     await uploadCategoriesToShopify()
     await uploadProductsToShopify()
 
-    // Return a success response
     return NextResponse.json({
       message: 'Categories and Products uploaded successfully',
     })
