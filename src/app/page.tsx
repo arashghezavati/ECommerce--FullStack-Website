@@ -1,7 +1,8 @@
-import { fetchProducts } from '../services/shopify/fetch-products'
-import { fetchCategories } from '../services/shopify/fetch-categories'
-import ProductCard from '../components/product/ProductCard'
-import CategoryCard from '../components/category/CategoryCard'
+import { fetchProducts } from '@/services/shopify/fetch-products'
+import { fetchCategories } from '@/services/shopify/fetch-categories'
+import ProductCard from '@/components/product/ProductCard'
+import CategoryCard from '@/components/category/CategoryCard'
+import NavBar from '@/components/NavBar'
 
 export const revalidate = 1 // Use 1 second or remove it in development
 
@@ -11,6 +12,7 @@ export default async function HomePage() {
 
   return (
     <div className="container mx-auto py-8">
+      <NavBar />
       <h1 className="text-5xl font-bold text-center mb-12">
         Welcome to the Store
       </h1>

@@ -47,7 +47,6 @@ export async function POST(req: Request) {
 
 export async function GET() {
   try {
-    // Shopify Admin API endpoint to get orders
     const response = await fetch(
       `https://${process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN}/admin/api/2023-01/orders.json`,
       {
@@ -60,15 +59,12 @@ export async function GET() {
       },
     )
 
-    // Check if the response is successful
     if (!response.ok) {
       throw new Error('Failed to fetch orders')
     }
 
-    // Convert the response to JSON
     const orders = await response.json()
 
-    // Return the orders in the response
     return NextResponse.json(orders)
   } catch (error: any) {
     console.error('Error fetching orders:', error)

@@ -1,4 +1,4 @@
-import CategoryCard from '../../components/category/CategoryCard'
+import CategoryCard from '@/components/category/CategoryCard'
 
 export default async function CategoriesPage() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/categories`, {

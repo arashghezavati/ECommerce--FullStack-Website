@@ -9,7 +9,6 @@ import {
   useElements,
 } from '@stripe/react-stripe-js'
 
-// Initialize Stripe with your public key
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string,
 )

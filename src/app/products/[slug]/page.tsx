@@ -1,4 +1,4 @@
-import { fetchProductByHandle } from '../../../services/shopify/fetch-products'
+import { fetchProductByHandle } from '@/services/shopify/fetch-products'
 import Image from 'next/image'
 async function fetchProduct(handle: string) {
   const product = await fetchProductByHandle(handle)

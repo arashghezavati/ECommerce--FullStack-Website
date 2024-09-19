@@ -2,7 +2,6 @@ export async function createShopifyProduct(product: any) {
   const apiUrl = `https://${process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN}/admin/api/2024-07/products.json`
   const accessToken = process.env.NEXT_PUBLIC_SHOPIFY_ADMIN_ACCESS_TOKEN
 
-  // Check if product with the same handle exists
   const existingProduct = await checkIfProductExists(product.handle)
   if (existingProduct) {
     console.log(
