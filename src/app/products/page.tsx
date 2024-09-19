@@ -1,10 +1,11 @@
 import ProductCard from '@/components/product/ProductCard'
 
 export default async function ProductsPage() {
+  // Fetch products from the API route
   const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/products`, {
-    cache: 'no-store',
+    cache: 'no-store', // Ensures the data is fetched fresh on each request
   })
-  const products = await res.json() 
+  const products = await res.json() // Parse the response data
 
   return (
     <div className="container mx-auto py-8">
