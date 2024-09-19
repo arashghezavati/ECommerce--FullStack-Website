@@ -14,7 +14,9 @@
 //   }
 // }
 import { NextResponse } from 'next/server';
-import { fetchProducts } from '@/services/shopify/fetch-products';
+import { fetchProducts } from '../../../services/shopify/fetch-products'
+
+export const revalidate = 1 
 
 export async function GET() {
   try {
