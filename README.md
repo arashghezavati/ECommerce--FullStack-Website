@@ -1,3 +1,5 @@
+![Diagram](./images/e-commerce.drawio.png)
+
 # Music E-Commerce Platform Transformation
 
 This project involves migrating a music e-commerce platform from WordPress to Shopify using modern web technologies like Next.js and the Shopify API. Shopify provides a robust backend for managing products, orders, and payments, significantly improving the platform's performance and user experience.
